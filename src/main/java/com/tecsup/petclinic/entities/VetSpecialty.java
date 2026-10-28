@@ -9,6 +9,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Entity
 @Table(name = "vet_specialties")
 @IdClass(VetSpecialtyId.class)
@@ -24,4 +26,15 @@ public class VetSpecialty {
 	@Id
 	@Column(name = "specialty_id")
 	private Integer specialtyId;
+
+	@Column(name = "certification_date")
+	private LocalDate certificationDate;
+
+	@Column(name = "years_experience")
+	private Integer yearsExperience;
+
+	public VetSpecialty(Integer vetId, Integer specialtyId) {
+		this.vetId = vetId;
+		this.specialtyId = specialtyId;
+	}
 }
